@@ -65,7 +65,7 @@ public class TarefaService {
         return TarefaMapper.toResponse(tarefa);
     }
 
-    public List<Tarefa> listaTarefas() {
+    public List<Tarefa> listarTarefas() {
         return tarefaRepository.findAll();
     }
 
@@ -80,6 +80,10 @@ public class TarefaService {
 
     public List<Tarefa> filtrarPorPrioridade(TipoPrioridade tipo) {
         return tarefaRepository.findByTipoPrioridade(tipo);
+    }
+
+    public List<Tarefa> filtrarPorStatus(TipoStatus status) {
+        return tarefaRepository.findByTipoStatus(status);
     }
 
 }

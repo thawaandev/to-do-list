@@ -32,7 +32,7 @@ public class Tarefa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 30, unique = true)
+    @Column(nullable = false, unique = true, length = 30)
     private String descricao;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

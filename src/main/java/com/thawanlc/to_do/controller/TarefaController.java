@@ -12,6 +12,7 @@ import com.thawanlc.to_do.dto.TarefaRequest;
 import com.thawanlc.to_do.dto.TarefaResponse;
 import com.thawanlc.to_do.entity.Tarefa;
 import com.thawanlc.to_do.entity.enums.TipoPrioridade;
+import com.thawanlc.to_do.entity.enums.TipoStatus;
 import com.thawanlc.to_do.service.TarefaService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,13 +49,19 @@ public class TarefaController {
 
     @GetMapping
     public List<Tarefa> buscarTarefas() {
-        return tarefaService.listaTarefas();
+        return tarefaService.listarTarefas();
     }
 
     @GetMapping("/prioridade")
     public ResponseEntity<List<Tarefa>> buscarPorPrioridade(@RequestParam TipoPrioridade tipo) {
         return ResponseEntity.ok(tarefaService.filtrarPorPrioridade(tipo));
     }
+
+    @GetMapping("/status")
+    public ResponseEntity<List<Tarefa>> buscarPorStatus(@RequestParam TipoStatus status) {
+        return ResponseEntity.ok(tarefaService.filtrarPorStatus(status));
+    }
+    
     
     
     
